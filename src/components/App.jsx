@@ -1,6 +1,6 @@
 import {Forma} from "./Form/Form";
 
-import { Layout } from "./Layout/Layout.styled";
+import { Cont } from "./Layout/Layout";
 import { GlobalStyle } from "./GlobalStyles";
 import { Component } from "react";
 import { Contacts } from "./Contacts/Contacts";
@@ -25,8 +25,6 @@ export class App extends Component {
       // console.log(elements.contacts.filter(contact => contact.id !== deleteElId))
     }))
   }
-    
-  
 
   addNewNumber = (newNumber) => {
     this.setState(prevNumbers => ({
@@ -49,14 +47,14 @@ export class App extends Component {
 
   render() {
     return (
-      <Layout>
+      <Cont>
         <h1>Phonebook</h1>
         <Forma onAdd={this.addNewNumber} contactList={this.state.contacts} />
         <h2>Contacts</h2>
         <Contacts contactList={this.state.contacts} onFilt={this.addFiltredNumbers} />
         <ContactList contactList={this.state.contacts} filterList={this.state.filter} onDelete={this.deleteNumber}/>
         <GlobalStyle />
-      </Layout>
+      </Cont>
     )
   }
 }
